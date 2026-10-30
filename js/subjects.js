@@ -1,6 +1,12 @@
 
 const subjects = [
-
+{
+  "name": "Applied Linear Algebra",
+  "codes": ["MAT3002"],
+  "icon": "∑",
+  "tone": "tone-blue",
+  "link": "https://drive.google.com/drive/folders/1I89W0rP6PGY6RU2BYdNksmS1LIoar2Wl?usp=sharing"
+},
   { "name": "Applied Numerical Methods", "codes": ["MAT2003"], "icon": "＋", "tone": "tone-blue", "link": "https://drive.google.com/drive/folders/13suh5ZBYNiCi3q-SeHd8XqndWcikZLJq?usp=sharing" },
 
   { "name": "Data Structures and Algorithms", "codes": ["CSE2002"], "icon": "＋", "tone": "tone-blue", "link": "https://drive.google.com/drive/folders/18ARDyVKBmTSBl44038l-Axv-xjFHauEB?usp=sharing" },
