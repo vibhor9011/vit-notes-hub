@@ -39,5 +39,11 @@ const subjects = [
 
   { "name": "Object-Oriented Programming with C++", "codes": ["CSE2001"], "icon": "▤", "tone": "tone-green", "link": "https://drive.google.com/drive/folders/1c5JxbkM6Sx1p3rYEJ2Cb9wgIygCfi_hl?usp=sharing" },
 
-
+{
+  "name": "Transform Techniques and Difference Equations",
+  "codes": ["MAT2005"],
+  "icon": "∫",
+  "tone": "tone-blue",
+  "link": "https://drive.google.com/drive/folders/1zE7RDkIwYGIsAbQKm5msrLRfKaEsSi0l?usp=sharing"
+},
 ];
