@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the students who contribute to VIT Notes Hub.">
+  <title>Contributors | VIT Notes Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Contributors page additions — uses the same green palette as the main site. */
+    .contributors-hero {
+      margin-top: 26px;
+      padding: 42px 46px;
+      border: 1px solid #e3e9e6;
+      border-radius: 22px;
+      background: linear-gradient(112deg, #f0f5f1 0%, #f8f8f3 52%, #e5eee8 100%);
+    }
+
+    .contributors-hero h1 {
+      margin-bottom: 12px;
+    }
+
+    .contributors-hero p:last-child {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: #5e6b68;
+      line-height: 1.8;
+    }
+
+    .contributors-section {
+      padding: 42px 0 10px;
+    }
+
+    .contributors-section+.contributors-section {
+      padding-top: 30px;
+    }
+
+    .contributors-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .contributors-heading h2 {
+      margin-bottom: 5px;
+    }
+
+    .contributors-heading p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .person-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-width: 0;
+      padding: 19px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, border-color .2s ease, background .3s ease;
+    }
+
+    .person-card:hover {
+      transform: translateY(-3px);
+      border-color: #b9d0c1;
+    }
+
+    .person-avatar {
+      flex: 0 0 52px;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--green-soft);
+      color: var(--green);
+      font: 800 18px "Manrope", sans-serif;
+    }
+
+    .person-info {
+      min-width: 0;
+    }
+
+    .person-info h3 {
+      margin: 0 0 4px;
+      font: 700 14px "Manrope", sans-serif;
+      overflow-wrap: anywhere;
+    }
+
+    .person-info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .person-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .person-links a {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .person-links a:hover {
+      text-decoration: underline;
+    }
+
+    .branch-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 15px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .join-note {
+      margin: 42px 0 50px;
+      padding: 24px 26px;
+      border: 1px solid #e2e8e3;
+      border-radius: 16px;
+      background: linear-gradient(105deg, #edf4ef, #fbfaf6);
+    }
+
+    .join-note h2 {
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .join-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .dark-mode .contributors-hero {
+      background: linear-gradient(112deg, #1c302a, #202c30, #263a31);
+      border-color: #344b40;
+    }
+
+    .dark-mode .contributors-hero p:last-child {
+      color: #bdc9c2;
+    }
+
+    .dark-mode .person-card {
+      background: var(--paper);
+      border-color: var(--line);
+    }
+
+    .dark-mode .person-card:hover {
+      border-color: #608e75;
+    }
+
+    .dark-mode .join-note {
+      background: linear-gradient(105deg, #20362d, #202b2b);
+      border-color: #354c40;
+    }
+
+    .dark-mode .branch-label {
+      background: var(--paper);
+      border-color: var(--line);
+    }
+
+    @media (max-width: 900px) {
+      .people-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .contributors-hero {
+        padding: 32px 24px;
+      }
+
+      .contributors-section {
+        padding-top: 32px;
+      }
+
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contributors-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .join-note {
+        margin: 30px 0;
+        padding: 21px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="VIT Notes Hub home">
+      <span class="brand-mark" aria-hidden="true">V</span>
+      <span><strong>VIT Notes Hub</strong><small>All your notes. One place.</small></span>
+    </a>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Toggle dark mode">🌙</button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="index.html#home">Home</a>
+      <a class="nav-link" href="index.html#subjects">Subjects</a>
+      <a class="nav-link" href="index.html#about">About</a>
+      <a class="nav-link active" href="contributors.html" aria-current="page">Contributors</a>
+    </nav>
+  </header>
+
+  <main class="page-width">
+    <section class="contributors-hero">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> THE PEOPLE BEHIND THE NOTES</p>
+      <h1>Meet the <span>contributors.</span></h1>
+      <p>VIT Notes Hub is built with help from students across different branches. Meet the people who develop the
+        platform and contribute useful academic resources for the student community.</p>
+    </section>
+
+    <!-- Keep the developer section first. Update the profile links when you have the URLs. -->
+    <section class="contributors-section" aria-labelledby="developers-title">
+      <div class="contributors-heading">
+        <div>
+          <p class="eyebrow">PROJECT TEAM</p>
+          <h2 id="developers-title">Website Developer</h2>
+
+        </div>
+      </div>
+      <div class="people-grid">
+        <article class="person-card">
+          <div class="person-avatar" aria-hidden="true">VS</div>
+          <div class="person-info">
+            <h3>Vibhor Srivastava</h3>
+            <p>Founder · Developer · VIT Bhopal</p>
+            <div class="person-links">
+              <!-- Replace # with your actual profile URLs. Remove a link if you do not want to display it. -->
+              <a href="https://github.com/vibhor9011" aria-label="Vibhor's GitHub profile">GitHub</a>
+              <a href="https://www.linkedin.com/in/vibhor-srivastava-8b6a28381/"
+                aria-label="Vibhor's LinkedIn profile">LinkedIn</a>
+              <a href="tel:+919721834634">Call</a>
+              <a href="mailto:vibhor.srivastava2007@gmail.com">Email</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Add real student profiles inside the relevant branch grid. Duplicate a person-card to add more people. -->
+    <section class="contributors-section" aria-labelledby="ai-title">
+      <div class="contributors-heading">
+        <div>
+          <p class="eyebrow">STUDENT CONTRIBUTORS</p>
+          <h2 id="ai-title">Computer Science & AI</h2>
+          <p>Notes, resources and academic contributions from CSE and AI-related branches.</p>
+        </div>
+        <span class="branch-label">CSE · AI · AIML · Data Science</span>
+      </div>
+      <div class="people-grid">
+        <article class="person-card">
+          <div class="person-avatar" aria-hidden="true">AS</div>
+
+          <div class="person-info">
+            <h3>Arya Saxena</h3>
+            <p>VIT Bhopal · CSE CYBER</p>
+            <span class="contributor-role">Notes Contributor</span>
+          </div>
+        </article>
+        <article class="person-card">
+          <div class="person-avatar" aria-hidden="true">AA</div>
+
+          <div class="person-info">
+            <h3>Abhinandan Aggarwal</h3>
+            <p>VIT Bhopal · CSE CYBER</p>
+            <span class="contributor-role">Notes Contributor</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contributors-section" aria-labelledby="ece-title">
+      <div class="contributors-heading">
+        <div>
+          <p class="eyebrow">STUDENT CONTRIBUTORS</p>
+          <h2 id="ece-title">Electronics & Communication</h2>
+          <p>Contributions from students in electronics and communication-related programmes.</p>
+        </div>
+        <span class="branch-label">ECE · ECE (VLSI) · ECE (Embedded)</span>
+      </div>
+      <div class="people-grid">
+        <article class="person-card">
+          <div class="person-avatar" aria-hidden="true">SB</div>
+
+          <div class="person-info">
+            <h3>Saurabh Banarjee</h3>
+            <p>VIT Bhopal · ECE</p>
+            <span class="contributor-role">Notes Contributor</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="contributors-section" aria-labelledby="other-title">
+      <div class="contributors-heading">
+        <div>
+          <p class="eyebrow">STUDENT CONTRIBUTORS</p>
+          <h2 id="other-title">Other Branches</h2>
+          <p>Contributors from mechanical, civil, aerospace and other programmes.</p>
+        </div>
+        <span class="branch-label">All other programmes</span>
+      </div>
+      <div class="people-grid">
+        <article class="person-card">
+          <div class="person-avatar" aria-hidden="true">RM</div>
+
+          <div class="person-info">
+            <h3>Rudra Mishra</h3>
+            <p>VIT Bhopal · Aerospace</p>
+            <span class="contributor-role">Notes Contributor</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="join-note">
+      <p class="eyebrow">CONTRIBUTE TO THE COMMUNITY</p>
+      <h2>Want to see your name here?</h2>
+      <p>Share useful, well-organised notes or academic resources with fellow VIT Bhopal students. Add your name under
+        the relevant branch once your contribution is included. Contact Developer </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html#home">
+      <span class="brand-mark" aria-hidden="true">V</span>
+      <span><strong>VIT Notes Hub</strong><small>All your notes. One place.</small></span>
+    </a>
+    <div class="footer-links">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#subjects">Subjects</a>
+      <a href="index.html#about">About</a>
+      <a href="contributors.html">Contributors</a>
+    </div>
+    <p>Made for VIT Bhopal students <span aria-hidden="true">♥</span></p>
+    <p>Designed &amp; Developed by <strong>Vibhor Srivastava</strong></p>
+  </footer>
+
+  <script>
+    // Match the theme selected on the home page.
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('vit-theme');
+    if (savedTheme === 'dark') document.body.classList.add('dark-mode');
+
+    function updateThemeButton() {
+      const isDark = document.body.classList.contains('dark-mode');
+      themeToggle.textContent = isDark ? '☀️' : '🌙';
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    updateThemeButton();
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('vit-theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      updateThemeButton();
+    });
+
+    // Mobile navigation.
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

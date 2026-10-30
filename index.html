@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VIT Notes Hub — find subject-wise study notes, organised by modules.">
+  <title>VIT Notes Hub | All Your Notes, One Place</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown>summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .nav-dropdown>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      z-index: 1000;
+      min-width: 205px;
+      padding: 8px;
+      display: grid;
+      gap: 3px;
+      background: #fff;
+      border: 1px solid #e8eaf0;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(20, 30, 50, .12);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: #263247;
+      text-decoration: none;
+      font-size: .92rem;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f3f6fa;
+    }
+
+    .nav-dropdown[open]>summary {
+      color: #263f68;
+    }
+
+    @media (max-width: 768px) {
+      .nav-dropdown {
+        width: 100%;
+      }
+
+      .dropdown-menu {
+        position: static;
+        margin: 6px 0 8px;
+        box-shadow: none;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="VIT Notes Hub home">
+      <span class="brand-mark" aria-hidden="true">V</span>
+      <span><strong>VIT Notes Hub</strong><small>All your notes. One place.</small></span>
+    </a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Toggle dark mode">
+      🌙
+    </button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#subjects">Subjects</a>
+      <a class="nav-link" href="#about">About</a>
+
+      <details class="nav-dropdown">
+        <summary class="nav-link">Important tools and links <span aria-hidden="true">▾</span></summary>
+        <div class="dropdown-menu">
+          <!-- Replace # with the actual URLs for your student resources. -->
+          <a href="https://ffcs-timetable.vercel.app/" target="_blank" rel="noopener noreferrer">FFCS MOCK TIME TABLE
+            MAKER </a>
+          <a href="https://vitbpl-rate-teacher.vercel.app/" target="_blank" rel="noopener noreferrer">FFCS FACULTY
+            RATING</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">Academic Calendar</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">Annual Examination Calender</a>
+        </div>
+      </details>
+
+      <a class="nav-link" href="contributors.html">Contributors</a>
+    </nav>
+
+    <label class="search-box" for="subjectSearch">
+      <span aria-hidden="true">⌕</span>
+      <input id="subjectSearch" type="search" placeholder="Search subjects or course codes..." autocomplete="off">
+      <kbd>/</kbd>
+    </label>
+  </header>
+
+  <main>
+    <section class="hero page-width" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR STUDY SPACE</p>
+        <h1>Good notes.<br><span>Less last-minute stress.</span></h1>
+        <p class="hero-description">Find your subject notes, module by module. A simple place to keep study resources
+          organised and easy to find.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#subjects">Browse subjects <span aria-hidden="true">→</span></a>
+
+        </div>
+        <div class="hero-note"><span class="check-icon">✓</span> Simple, organised, student-friendly.</div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of books and study notes" role="img">
+        <div class="art-sun"></div>
+        <div class="floating-paper paper-one"><i></i><i></i><i></i></div>
+        <div class="floating-paper paper-two"><i></i><i></i><i></i></div>
+        <div class="book book-top"></div>
+        <div class="book book-middle"></div>
+        <div class="book book-bottom"></div>
+        <div class="plant"><span></span><span></span><span></span><b></b></div>
+        <div class="art-caption">One topic at a time.</div>
+      </div>
+    </section>
+
+    <section class="subjects-section page-width" id="subjects">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE LIBRARY</p>
+          <h2>Browse subjects</h2>
+          <p class="section-description">Pick a subject to explore its modules and available notes.</p>
+        </div>
+        <span class="subject-count" id="subjectCount">Loading subjects...</span>
+      </div>
+
+      <div class="subject-grid" id="subjectGrid">
+        <!-- Subject cards are generated from js/subjects.js. Add or edit subjects in that file. -->
+      </div>
+      <p class="empty-state" id="emptyState" hidden>No subjects match your search. Try another name or course code.</p>
+    </section>
+
+    <section class="about-section page-width" id="about">
+      <div class="about-icon" aria-hidden="true">✎</div>
+      <div>
+        <p class="eyebrow">MADE FOR STUDENTS</p>
+        <h2>Find what you need. Get back to studying.</h2>
+        <p>Resources are arranged by subject and module, so you can spend less time hunting for files and more time
+          understanding the topic.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#home">
+      <span class="brand-mark" aria-hidden="true">V</span>
+      <span>
+        <strong>VIT Notes Hub</strong>
+        <small>All your notes. One place.</small>
+      </span>
+    </a>
+
+    <p>Made for VIT Bhopal students <span aria-hidden="true">♥</span></p>
+
+    <p class="creator-credit">
+      Designed & Developed by <strong>Vibhor Srivastava</strong>
+    </p>
+  </footer>
+  <script src="js/subjects.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>
