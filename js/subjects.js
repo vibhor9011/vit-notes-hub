@@ -13,10 +13,22 @@ const subjects = [
 
   { "name": "Electric Circuits and Systems", "codes": ["EEE1001"], "icon": "◇", "tone": "tone-rose", "link": "https://drive.google.com/drive/folders/100u7LUXjn_WskNKfCj6mDcUinCeZdVUo?usp=sharing" },
   { "name": "Emotional Intelligence", "codes": ["HUM1002"], "icon": "⌨", "tone": "tone-green", "link": "https://drive.google.com/file/d/1F9nh9SJzX30AEhql38SIUqhnBRaqCEJW/view?usp=sharing" },
-
+{
+  "name": "Engineering Physics",
+  "codes": ["PHY1003"],
+  "icon": "⚛",
+  "tone": "tone-blue",
+  "link": "https://drive.google.com/drive/folders/13uE_dKfjnh4eOqXJAIZ99-EOdh6YQ-JS?usp=drive_link"
+},
   { "name": "Environmental sustainability", "codes": ["CHY1006"], "icon": "⌨", "tone": "tone-sand", "link": "https://drive.google.com/drive/folders/18x7FlsznzuUV42TmXC2-n1aeJPwJAwVK?usp=sharing" },
   { "name": "Fluid Mechanics for Aerospace Engineering", "codes": ["ASE2013"], "icon": "↗", "tone": "tone-blue", "link": "https://drive.google.com/drive/folders/1OpwKyrF5HQBkTIKI2ShxQhNDQZQSzHA2?usp=sharing" },
-
+{
+  "name": "Forensic Chemistry and Applications",
+  "codes": ["CHY1007"],
+  "icon": "⚗",
+  "tone": "tone-green",
+  "link": "https://drive.google.com/drive/folders/1-E7U2ds5BE9AQaFDYaCrATKrzDhXStXy?usp=sharing"
+},
   { "name": "Fundamentals in AI and ML", "codes": ["CSA2001"], "icon": "⌘", "tone": "tone-sand", "link": "https://drive.google.com/drive/folders/1D9yKkqL3ueW5xY3fQYlG6o8U9jd8EXdU?usp=sharing" },
 
   { "name": "Introduction to Computational Chemistry", "codes": ["CHY1005"], "icon": "＋", "tone": "tone-rose", "link": "https://drive.google.com/drive/folders/1_kJcp6aRzfu93IHbHC2uDAtFso6x5kyB?usp=sharing" },
